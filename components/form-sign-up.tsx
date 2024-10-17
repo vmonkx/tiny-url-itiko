@@ -42,7 +42,7 @@ export const FormSignUp = () => {
 		const res = await createNewUser(data);
 
 		if (res.success) {
-			router.push("/login");
+			router.push("/signin");
 		} else {
 			toast({ description: res.message, variant: "destructive" });
 		}
