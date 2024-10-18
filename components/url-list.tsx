@@ -1,8 +1,7 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { Button } from "./ui/button";
-import { CopyIcon, EyeIcon, Pencil } from "lucide-react";
-import { get } from "http";
+
+import { EyeIcon } from "lucide-react";
+
 import { getShortUrls } from "@/lib/actions/url.actions";
 
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
@@ -11,7 +10,7 @@ import { ButtonEditUrl } from "./button-edit-url";
 import { ButtonDeleteUrl } from "./button-delete-url";
 import { ButtonGetQR } from "./button-qr-url";
 
-export const UrlList = async () => {
+const UrlList = async () => {
 	const urls = await getShortUrls();
 
 	const shortenerUrl = (code: string) =>
@@ -58,3 +57,5 @@ export const UrlList = async () => {
 		</div>
 	);
 };
+
+export default UrlList;

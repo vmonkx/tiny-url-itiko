@@ -1,6 +1,9 @@
-import { UrlContainer } from "@/components/url-container";
+import { CreateShortenUrlForm } from "@/components/form-create-url";
+import { Spinner } from "@/components/ui/spinner";
+import UrlList from "@/components/url-list";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export const revalidate = 60;
 
@@ -20,7 +23,12 @@ export default async function Home() {
 								Сокращайте и управляйте списком ссылок
 							</p>
 						</div>
-						<UrlContainer />
+						<div>
+							<CreateShortenUrlForm />
+							<Suspense fallback={<Spinner show size="large" />}>
+								<UrlList />
+							</Suspense>
+						</div>
 					</>
 				) : (
 					<div className="text-center">
